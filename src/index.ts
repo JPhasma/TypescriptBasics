@@ -166,3 +166,17 @@ class Employee extends Person {
 const shawn = new Employee(3, 'Shawn', 'Developer');
 console.log(shawn);
 console.log(shawn.register());
+
+// Generics - used to build reusable components
+// eg: the <T> use means the type gets infered, but can initially be any
+function getArray<T>(items: T[]): T[] {
+  return new Array().concat(items);
+}
+
+let numArray = getArray<number>([1, 2, 3, 4]);
+let strArray = getArray<string>(['Jill', 'Sue', 'Fred']);
+// numArray.push('bob'); << this would not be allowed, must be another number
+numArray.push(100);
+// strArray.push(100);<< this would not be allowed, must be another string
+strArray.push('Bob');
+console.log(numArray, strArray);

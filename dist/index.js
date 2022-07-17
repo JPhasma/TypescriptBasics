@@ -140,3 +140,15 @@ var Employee = /** @class */ (function (_super) {
 var shawn = new Employee(3, 'Shawn', 'Developer');
 console.log(shawn);
 console.log(shawn.register());
+// Generics - used to build reusable components
+// eg: the <T> use means the type gets infered, but can initially be any
+function getArray(items) {
+    return new Array().concat(items);
+}
+var numArray = getArray([1, 2, 3, 4]);
+var strArray = getArray(['Jill', 'Sue', 'Fred']);
+// numArray.push('bob'); << this would not be allowed, must be another number
+numArray.push(100);
+// strArray.push(100);<< this would not be allowed, must be another string
+strArray.push('Bob');
+console.log(numArray, strArray);
