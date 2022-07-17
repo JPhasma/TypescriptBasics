@@ -94,3 +94,19 @@ let customerId = <number>cid;
 let customerStringID = cid as string;
 customerStringID = 'One';
 console.log(customerId, customerStringID);
+
+// Functions - can also define the return type eg: the ':number' after the arguments
+function addNum(x: number, y: number): number {
+  return x + y;
+}
+//eg: this will now error
+// console.log(addNum(1, '2'));
+console.log(addNum(1, 2));
+
+// Void
+function log(message: string | number): void {
+  console.log(message);
+}
+
+log('Message as sting');
+log(40); // logs the number 40
