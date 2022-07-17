@@ -137,13 +137,32 @@ console.log(add(1, 2), subtract(1, 2)); // should log two returned calculations,
 class Person {
   id: number;
   name: string;
-
+  // nb the above properties can be set to private or protected with typescript
+  // eg: private id: number
   constructor(id: number, name: string) {
     this.id = id;
     this.name = name;
     console.log(this.id, this.name);
   }
+  register() {
+    return `${this.name} is now registered`;
+  }
 }
 const brad = new Person(1, 'Brad Traversy');
 const jen = new Person(2, 'Jen Star');
 console.log(brad, jen);
+console.log(jen.register()); // accessing the register method on this class
+
+// Subclasses - can extend a class with typescript
+class Employee extends Person {
+  position: string;
+
+  constructor(id: number, name: string, position: string) {
+    super(id, name);
+    this.position = position;
+  }
+}
+
+const shawn = new Employee(3, 'Shawn', 'Developer');
+console.log(shawn);
+console.log(shawn.register());

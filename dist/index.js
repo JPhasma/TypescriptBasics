@@ -1,4 +1,19 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 //basic types
 var id = 6;
 var company = 'Weyland Yutani';
@@ -96,13 +111,32 @@ var subtract = function (a, b) { return a - b; };
 console.log(add(1, 2), subtract(1, 2)); // should log two returned calculations, 3 and -1
 // classes
 var Person = /** @class */ (function () {
+    // nb the above properties can be set to private or protected with typescript
+    // eg: private id: number
     function Person(id, name) {
         this.id = id;
         this.name = name;
         console.log(this.id, this.name);
     }
+    Person.prototype.register = function () {
+        return "".concat(this.name, " is now registered");
+    };
     return Person;
 }());
 var brad = new Person(1, 'Brad Traversy');
 var jen = new Person(2, 'Jen Star');
 console.log(brad, jen);
+console.log(jen.register()); // accessing the register method on this class
+// Subclasses - can extend a class with typescript
+var Employee = /** @class */ (function (_super) {
+    __extends(Employee, _super);
+    function Employee(id, name, position) {
+        var _this = _super.call(this, id, name) || this;
+        _this.position = position;
+        return _this;
+    }
+    return Employee;
+}(Person));
+var shawn = new Employee(3, 'Shawn', 'Developer');
+console.log(shawn);
+console.log(shawn.register());
