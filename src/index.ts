@@ -33,3 +33,8 @@ employee = [
 ];
 
 console.log('Tuple array example:', employee);
+
+// Union - allows for more than one Type should you really need it
+let flipFlop: string | number = 'this string could also be a number if needed';
+flipFlop = 50;
+flipFlop = 'Was a string, then a number, back to a string again';
