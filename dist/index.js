@@ -66,3 +66,10 @@ var car = {
     make: 'Nissan',
 };
 console.log(car.make);
+// Type Assertion
+var cid = 1; // this can be any, but no we assert it's type: eg as a number
+var customerId = cid;
+// this also works as Type Assertion
+var customerStringID = cid;
+customerStringID = 'One';
+console.log(customerId, customerStringID);

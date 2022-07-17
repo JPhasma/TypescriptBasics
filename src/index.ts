@@ -86,3 +86,11 @@ const car: Car = {
   make: 'Nissan',
 };
 console.log(car.make);
+
+// Type Assertion
+let cid: any = 1; // this can be any, but no we assert it's type: eg as a number
+let customerId = <number>cid;
+// this also works as Type Assertion
+let customerStringID = cid as string;
+customerStringID = 'One';
+console.log(customerId, customerStringID);
