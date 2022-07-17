@@ -110,3 +110,25 @@ function log(message: string | number): void {
 
 log('Message as sting');
 log(40); // logs the number 40
+
+// Interfaces (similar to the Object Typing above)
+interface CarInterface {
+  readonly id: number; // can set this so can't be overwritten and is readonly
+  make: string;
+  age?: number; // this? allows for optional values
+}
+
+const car1: CarInterface = {
+  id: 1,
+  make: 'Ford',
+};
+console.log(car1.make);
+
+// Interfaces can be used with functions eg:
+interface MathFunc {
+  (x: number, y: number): number;
+}
+
+const add: MathFunc = (a: number, b: number): number => a + b;
+const subtract: MathFunc = (a: number, b: number): number => a - b;
+console.log(add(1, 2), subtract(1, 2)); // should log two returned calculations, 3 and -1

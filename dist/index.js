@@ -86,3 +86,11 @@ function log(message) {
 }
 log('Message as sting');
 log(40); // logs the number 40
+var car1 = {
+    id: 1,
+    make: 'Ford',
+};
+console.log(car1.make);
+var add = function (a, b) { return a + b; };
+var subtract = function (a, b) { return a - b; };
+console.log(add(1, 2), subtract(1, 2)); // should log two returned calculations, 3 and -1
