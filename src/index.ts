@@ -108,7 +108,7 @@ function log(message: string | number): void {
   console.log(message);
 }
 
-log('Message as sting');
+log('Message as string');
 log(40); // logs the number 40
 
 // Interfaces (similar to the Object Typing above)
@@ -132,3 +132,18 @@ interface MathFunc {
 const add: MathFunc = (a: number, b: number): number => a + b;
 const subtract: MathFunc = (a: number, b: number): number => a - b;
 console.log(add(1, 2), subtract(1, 2)); // should log two returned calculations, 3 and -1
+
+// classes
+class Person {
+  id: number;
+  name: string;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+    console.log(this.id, this.name);
+  }
+}
+const brad = new Person(1, 'Brad Traversy');
+const jen = new Person(2, 'Jen Star');
+console.log(brad, jen);

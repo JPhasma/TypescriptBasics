@@ -84,7 +84,7 @@ console.log(addNum(1, 2));
 function log(message) {
     console.log(message);
 }
-log('Message as sting');
+log('Message as string');
 log(40); // logs the number 40
 var car1 = {
     id: 1,
@@ -94,3 +94,15 @@ console.log(car1.make);
 var add = function (a, b) { return a + b; };
 var subtract = function (a, b) { return a - b; };
 console.log(add(1, 2), subtract(1, 2)); // should log two returned calculations, 3 and -1
+// classes
+var Person = /** @class */ (function () {
+    function Person(id, name) {
+        this.id = id;
+        this.name = name;
+        console.log(this.id, this.name);
+    }
+    return Person;
+}());
+var brad = new Person(1, 'Brad Traversy');
+var jen = new Person(2, 'Jen Star');
+console.log(brad, jen);
